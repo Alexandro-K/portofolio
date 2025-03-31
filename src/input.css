@@ -1,41 +1,43 @@
 @import "tailwindcss";
 
-@theme{
-    --breakpoint-2xl: 1320px;
-    --color-primary: oklch(0.685 0.169 237.323);
-    --color-secondary: oklch(0.554 0.046 257.417);
-    --color-dark: oklch(0.208 0.042 265.755);
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --breakpoint-2xl: 1320px;
+  --color-primary: oklch(0.685 0.169 237.323);
+  --color-secondary: oklch(0.554 0.046 257.417);
+  --color-dark: oklch(0.208 0.042 265.755);
 }
 
 body {
-    font-family : 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
-.navbar-fixed{
-    @apply fixed z-[9999] bg-white/70;
-    backdrop-filter: blur(5px);
-    box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1)
-
+.navbar-fixed {
+  @apply fixed z-[9999] bg-white/70 backdrop-filter-[5px] dark:bg-dark/50;
+  box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
 }
 
-.container{
-    @apply m-auto p-4;
+.container {
+  @apply m-auto p-4;
 }
 
-.hamburger-line{
-    @apply w-[30px] h-[2px] my-2 block bg-dark;
+.hamburger-line {
+  @apply w-[30px] h-[2px] my-2 block bg-dark dark:bg-white;
 }
 
-.hamburger-active > span:nth-child(1){
-    @apply rotate-45;
+.hamburger-active > span:nth-child(1) {
+  @apply rotate-45;
 }
 
-.hamburger-active > span:nth-child(2){
-    @apply scale-0;
+.hamburger-active > span:nth-child(2) {
+  @apply scale-0;
 }
 
-.hamburger-active > span:nth-child(3){
-    @apply -rotate-45;
+.hamburger-active > span:nth-child(3) {
+  @apply -rotate-45;
 }
 
-
+#dark-toggle:checked ~ label div.toggle-circle{
+  @apply translate-x-3;
+}
